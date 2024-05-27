@@ -5,6 +5,9 @@ export const handleSocketConnection = (socket, io) => {
     io.emit("update", bid);
   });
 
+  socket.on("notify", (notification) => {
+    io.emit("notify", notification);
+  });
   // Handle Disconnection
   socket.on("disconnect", () => {
     console.log(`User disconnected: ${socket.id}`);
