@@ -1,9 +1,8 @@
 export const handleSocketConnection = (socket, io) => {
   console.log(`User connected: ${socket.id}`);
 
-  socket.on("place-bid", (message) => {
-    console.log("Bid is placed", message);
-    io.emit("bid", message);
+  socket.on("place-bid", (bid) => {
+    io.emit("update", bid);
   });
 
   // Handle Disconnection
