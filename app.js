@@ -48,11 +48,7 @@ app.use((err, req, res, next) => {
 });
 
 // Socket connection
-const io = new Server(server, {
-  cors: {
-    origin: "*",
-  },
-});
+const io = new Server(server);
 io.on("connection", (socket) => {
   handleSocketConnection(socket, io);
 });

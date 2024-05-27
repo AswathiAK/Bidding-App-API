@@ -93,7 +93,7 @@ export const getAllItems = async (req, res, next) => {
       ? { endTime: { lte: new Date() } }
       : {}
     : {};
-  const condition = { OR: [searchCondition, statusCondition] };
+  const condition = { AND: [searchCondition, statusCondition] };
 
   try {
     const allItems = await prisma.item.findMany({
